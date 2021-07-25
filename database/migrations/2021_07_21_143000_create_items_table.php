@@ -15,18 +15,22 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('nappi_code')->unique();
+            $table->string('nappi_code')->unique()->nullable();
             $table->string('regno')->nullable();
-            $table->char('shedule', 5);
+            $table->char('shedule', 5)->nullable();
             $table->string('name');
-            $table->enum('dosage_form', ['drops','injection', 'tablet']);
+            $table->text('description')->nullable();
+            $table->enum('category', ['General','Herbal','Pharmaceutical', 'Steroids']);
+            $table->string('dosage_form');
             $table->string('pack_size');
-            $table->string('num_packs');
+            $table->string('num_packs')->nullable();
             $table->unsignedInteger('cost_price'); // sep
-            $table->unsignedInteger('cost_per_unit');
+            $table->unsignedInteger('cost_per_unit')->nullable();
             $table->unsignedInteger('dispensing_fee');
             $table->unsignedInteger('add_on_fee')->default(5000);
-            $table->boolean('is_generic');
+            $table->string('image')->nullable();
+            $table->boolean('is_generic')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

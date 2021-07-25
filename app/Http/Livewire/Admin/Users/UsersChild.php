@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admin\Users;
 
 use Livewire\Component;
 use App\Models\User;
-use Livewire\WithPagination;
 
 class UsersChild extends Component
 {

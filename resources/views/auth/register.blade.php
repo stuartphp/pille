@@ -1,77 +1,99 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 col-xl-4">
+        <div class="card">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="card-body p-4">
+                
+                <div class="text-center w-75 m-auto">
+                    <div class="auth-logo">
+                        <a href="index.html" class="logo logo-dark text-center">
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo-dark.png" alt="" height="22">
+                            </span>
+                        </a>
+    
+                        <a href="index.html" class="logo logo-light text-center">
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo-light.png" alt="" height="22">
+                            </span>
+                        </a>
+                    </div>
+                    <p class="text-muted mb-4 mt-3">Don't have an account? Create your own account, it takes less than a minute</p>
                 </div>
-            </div>
+
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="mb-2">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input class="form-control" type="text" id="fullname" placeholder="Enter your name" name="name" value="{{ old('name') }}" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="emailaddress" class="form-label">Email address</label>
+                        <input class="form-control" type="email" id="emailaddress" required placeholder="Enter your email" name="email" value="{{ old('email') }}">
+                    </div>
+                    <div class="mb-2">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password" required autocomplete="new-password">
+                            <div class="input-group-text" data-password="false">
+                                <span class="password-eye"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkbox-signup">
+                            <label class="form-check-label" for="checkbox-signup">
+                                I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a>
+                            </label>
+                        </div>
+                          
+                    </div>
+                    <div class="d-grid text-center">
+                        <button class="btn btn-primary" type="submit"> Sign Up </button>
+                    </div>
+
+                </form>
+
+                <div class="text-center">
+                    <h5 class="mt-3 text-muted">Sign Up using</h5>
+                    <ul class="social-list list-inline mt-3 mb-0">
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-purple text-purple"><i class="mdi mdi-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div> <!-- end card-body -->
         </div>
-    </div>
+        <!-- end card -->
+
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-primary fw--medium ms-1">Sign In</a></p>
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+
+    </div> <!-- end col -->
 </div>
+<!-- end row -->
+
 @endsection

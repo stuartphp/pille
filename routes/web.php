@@ -27,10 +27,18 @@ Route::middleware(['auth','web', 'verified'])->group(function () {
         Route::get('/permissions', function(){ return view('admin.users.permissions'); })->name('permissions');
         Route::resource('roles', App\Http\Controllers\Admin\Users\RolesController::class);
     });
+    Route::prefix('items')->as('items.')->group(function () {
+        Route::get('list', function(){ return view('items.index'); })->name('index');
+    });
     Route::prefix('orders')->as('orders.')->group(function () {
         Route::get('list', [\App\Http\Controllers\Orders\OrdersController::class, 'index'])->name('list');
         Route::get('create', [\App\Http\Controllers\Orders\OrdersController::class, 'create'])->name('create');
         Route::get('edit/{id}', [\App\Http\Controllers\Orders\OrdersController::class, 'edit'])->name('edit');
     });
-
+    Route::prefix('medical')->as('medical.')->group(function () {
+        Route::get('general', function(){ return view('medical.general');})->name('general');
+        Route::get('herbal', function(){ return view('medical.herbal');})->name('herbal');
+        Route::get('pharmaceutical', function(){ return view('medical.pharmaceutical');})->name('pharmaceutical');
+        Route::get('steroids', function(){ return view('medical.steroids');})->name('steroids');
+    });
 });

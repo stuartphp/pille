@@ -12,8 +12,10 @@ class Item extends Model
     protected $fillable =[
         'nappi_code',
         'regno',
-        'shedule',
+        'schedule',
         'name',
+        'description',
+        'category',
         'dosage_form',
         'pack_size',
         'num_packs',
@@ -21,6 +23,8 @@ class Item extends Model
         'cost_per_unit',
         'dispensing_fee',
         'add_on_fee',
+        'image',
         'is_generic',
     ];
 }
+

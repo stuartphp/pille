@@ -64,6 +64,28 @@ class PermissionSeeder extends Seeder
             [
                 'title'=>'permissions_delete',
             ],
+            [
+                'title'=>'items_access',
+            ],
+            [
+                'title'=>'items_create',
+            ],
+            [
+                'title'=>'items_read',
+            ],
+            [
+                'title'=>'items_update',
+            ],
+            [
+                'title'=>'items_delete',
+            ],
+            [
+                'title'=>'menu_herbal',
+            ],
+            [
+                'title'=>'menu_steroids',
+            ],
+
         ]);
 
     }
