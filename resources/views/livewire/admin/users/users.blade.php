@@ -1,32 +1,37 @@
-<div class="container-sm">
+<div class="mt-2">
+
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-md-6">{{ __('Users') }}</div>
+                <div class="col-md-6"><span class="fs-4">Users</span></div>
                 <div class="col-md-1">
                     @if (count(array_intersect(session()->get('grant'), ['SU','users_create']))==1)
-                    <a href="#" wire:click="$emitTo('admin.users.users-child', 'showCreateForm')"><span class="h5">+</span></a>
+                    <a href="#" wire:click="$emitTo('admin.users.users-child', 'showCreateForm')"><span class="fs-4">+</span></a>
                     @endif
                 </div>
                 <div class="col-md-1">
                     <x-page-size/>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control form-control-sm" wire:model.debounce.300ms="searchTerm" placeholder="Search" aria-label="Search"/>
-                </div>
+                    <input type="text" class="form-control form-control-sm" wire:model.debounce.300ms="searchTerm" placeholder="Search" aria-label="Search"/></div>
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-hover">
-                <thead>
-                    <th><a href="#" wire:click="sortBy('name')">{{ __('Name') }} <x-icon-sort sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" /></a></th>
+
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th><a href="#" wire:click="sortBy('name')">{{ __('Name') }} <x-icon-sort sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" /></a></th>
                     <th><a href="#" wire:click="sortBy('email')">{{ __('Email') }} <x-icon-sort sortField="email" :sort-by="$sortBy" :sort-asc="$sortAsc" /></a></th>
                     <th>{{ __('Verified') }}</th>
                     <th>{{ __('Role') }}</th>
                     <th class="col-1">{{ __('Action') }}</th>
-                </thead>
-                <tbody>
-                    @forelse ($data as $item)
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
@@ -36,9 +41,9 @@
                                     <span>{{ $role->name }}</span>
                                 @endforeach
                             </td>
-                            <td class="text-right">
-                                <div class="btn-group dropleft">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <td class="text-end">
+                                <div class="btn-group dropstart">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         <x-icon-three-dots-vertical/>
                                     </a>
                                     <div class="dropdown-menu">
@@ -57,9 +62,13 @@
                     @empty
                         <tr><td colspan="5">No records found</td></tr>
                     @endforelse
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div> <!-- end table-responsive-->
+
         </div>
-    </div>
+    </div> <!-- end card -->
+    <!-- end page title -->
+
     @livewire('admin.users.users-child')
 </div>

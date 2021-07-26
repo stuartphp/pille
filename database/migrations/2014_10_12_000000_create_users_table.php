@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->text('delivery_address')->nullable();
             $table->boolean('gender')->nullable();
             $table->unsignedBigInteger('team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

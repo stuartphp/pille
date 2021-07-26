@@ -25,6 +25,7 @@ class User extends Authenticatable
         'id_number',
         'delivery_address',
         'gender',
+        'profile_photo_url',
         'team_id'
     ];
 
@@ -46,7 +47,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-   
+    
 
     public function roles()
     {
