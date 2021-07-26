@@ -1,4 +1,4 @@
-<select {{ $attributes->merge(['class' => 'form-control form-control-sm']) }} wire:model="pageSize" >
+<select {{ $attributes->merge(['class' => 'form-select form-select-sm']) }} wire:model="pageSize" >
     <option value="10">10</option>
     <option value="15">15</option>
     <option value="20">20</option>

@@ -1,4 +1,4 @@
-<div class="container-sm mt-2">
+<div class="mt-2">
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -27,9 +27,9 @@
                     @forelse ($data as $item)
                         <tr>
                             <td>{{ $item->title }}</td>
-                            <td class="text-right">
-                                <div class="btn-group dropleft">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <td class="text-end">
+                                <div class="btn-group dropstart">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                       <x-icon-three-dots-vertical/>
                                     </a>
                                     <div class="dropdown-menu">
