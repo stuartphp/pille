@@ -19,12 +19,12 @@
 
 		<!-- icons -->
 		<link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/custom.css">
+        <link rel="stylesheet" href="/css/custom.css?{{ time() }}">
         @stack('css')
         @livewireStyles
     </head>
 
-    <body class="loading">
+    <body>
         <!-- Begin page -->
         <div id="wrapper">
             <!-- Topbar Start -->
@@ -110,11 +110,9 @@
                             </div>
                         </li>
 
-                        <li class="dropdown d-none d-lg-inline-block">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
-                                <i class="mdi mdi-crop-free noti-icon"></i>
-                            </a>
-                        </li>
+                        {{-- <li class="dropdown d-none d-lg-inline-block">
+                            @livewire('fullscreen')
+                        </li> --}}
 
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -421,57 +419,6 @@
                                 </div>
                             </li>
 
-                           <!-- <li class="menu-title mt-2">Apps</li>
-
-                            <li>
-                                <a href="apps-chat.html">
-                                    <i class="ri-message-2-line"></i>
-                                    <span> Chat </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#sidebarEcommerce" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarEcommerce">
-                                    <i class="ri-shopping-cart-2-line"></i>
-                                    <span class="badge bg-danger float-end">New</span>
-                                    <span> Ecommerce </span>
-                                </a>
-                                <div class="collapse" id="sidebarEcommerce">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="ecommerce-products.html">Products List</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-products-grid.html">Products Grid</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-product-detail.html">Product Detail</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-product-create.html">Create Product</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-customers.html">Customers</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-orders.html">Orders</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-orders-detail.html">Order Detail</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-sellers.html">Sellers</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-cart.html">Shopping Cart</a>
-                                        </li>
-                                        <li>
-                                            <a href="ecommerce-checkout.html">Checkout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>-->
-
                             <li>
                                 <a href="apps-calendar.html">
                                     <i class="ri-calendar-2-line"></i>
@@ -615,28 +562,34 @@
                                     </ul>
                                 </div>
                             </li>
-
-                            <li>
+                            @if(count(array_intersect(session()->get('grant'), ['SU','users_management_access']))==1)
+                            <li class="{{ request()->is('users/*') ? 'menuitem-active' : '' }}">
                                 <a href="#sidebarExpages" data-bs-toggle="collapse" aria-expanded="false" aria-controls="sidebarExpages">
                                     <i class="ri-folder-user-line"></i>
                                     <span> Use Management </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <div class="collapse" id="sidebarExpages">
+                                <div class="collapse {{ request()->is('users/*') ? 'show' : '' }}" id="sidebarExpages">
                                     <ul class="nav-second-level">
-                                        <li>
+                                        @if (count(array_intersect(session()->get('grant'), ['SU','users_access']))==1)
+                                        <li class="{{ request()->is('users/users') ? 'menuitem-active' : '' }}">
                                             <a href="{{ route('users.users') }}">Users</a>
                                         </li>
-                                        <li>
+                                        @endif
+                                        @if (count(array_intersect(session()->get('grant'), ['SU','roles_access']))==1)
+                                        <li class="{{ request()->is('users/roles*') ? 'menuitem-active' : '' }}">
                                             <a href="{{ route('users.roles.index') }}">Roles</a>
                                         </li>
-                                        <li>
+                                        @endif
+                                        @if (count(array_intersect(session()->get('grant'), ['SU','permissions_access']))==1)
+                                        <li class="{{ request()->is('users/permissions') ? 'menuitem-active' : '' }}">
                                             <a href="{{ route('users.permissions') }}">Permissions</a>
                                         </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </li>
-
+                            @endif
                         </ul>
 
                     </div>
@@ -705,6 +658,7 @@
                     "progressBar": true,
                 }
             });
+                       
         </script>
     </body>
 </html>

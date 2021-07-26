@@ -1,19 +1,18 @@
-<div class="mt-2">
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-md-6">Permissions</div>
+<div class="w-1-2">
+    <div class="card w-full">
+        
+        <div class="card-body"><div class="row">
+                <div class="col-md-5"><span class="fs-4">Permissions</span></div>
                 <div class="col-md-1">
-                    <a href="#" wire:click="$emitTo('admin.users.permissions-child', 'showCreateForm')"><span class="h5">+</span></a>
+                    <a href="#" wire:click="$emitTo('admin.users.permissions-child', 'showCreateForm')"><span class="fs-4">+</span></a>
                 </div>
-                <div class="col-md-1"><x-page-size/></div>
+                <div class="col-md-2"><x-page-size/></div>
                 <div class="col-md-4">
                     <input type="text" class="form-control form-control-sm" wire:model.debounce.300ms="searchTerm" placeholder="Search" aria-label="Search"/>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
-            <table class="table table-hover">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
                 <thead>
                     <tr>
                         <th><a href="#" wire:click="sortBy('title')">

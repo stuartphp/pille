@@ -9,15 +9,15 @@
                 
                 <div class="text-center w-75 m-auto">
                     <div class="auth-logo">
-                        <a href="index.html" class="logo logo-dark text-center">
+                        <a href="/" class="logo logo-dark text-center">
                             <span class="logo-lg">
-                                <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                <img src="/logo.png" alt="" height="60">
                             </span>
                         </a>
     
-                        <a href="index.html" class="logo logo-light text-center">
+                        <a href="/" class="logo logo-light text-center">
                             <span class="logo-lg">
-                                <img src="../assets/images/logo-light.png" alt="" height="22">
+                                <img src="/logo.png" alt="" height="60">
                             </span>
                         </a>
                     </div>
@@ -25,7 +25,7 @@
                 </div>
 
                 <form action="{{ route('login') }}" method="POST">
-@csrf
+                    @csrf
                     <div class="mb-2">
                         <label for="emailaddress" class="form-label">Email address</label>
                         <input name="email" class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
@@ -57,7 +57,7 @@
 
                 </form>
 
-                <div class="text-center">
+               <!-- <div class="text-center">
                     <h5 class="mt-3 text-muted">Sign in with</h5>
                     <ul class="social-list list-inline mt-3 mb-0">
                         <li class="list-inline-item">
@@ -73,7 +73,7 @@
                             <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
             </div> <!-- end card-body -->
         </div>

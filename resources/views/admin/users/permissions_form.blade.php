@@ -1,9 +1,5 @@
-<div class="row mb-2">
-    <label>Title</label>
-    <input type="text" wire:model.defer="item.title" class="form-control form-control-sm @error('item.title') is-invalid @enderror" />
-    @error('item.title')
-        <div class="text-danger">
-            {{ $message }}
-        </div>
-    @enderror
-</div>
+
+<x-label value="{{ __('Title') }}"/>
+<x-inp type="text" wire:model.defer="item.title" />
+<x-inp-error for="item.title"/>
+

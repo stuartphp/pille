@@ -96,11 +96,11 @@ class UsersChild extends Component
     {
         $this->validate();
         User::create([
-            'group' => $this->item['group'],
-            'title' => $this->item['title']
+            'name' => $this->item['name'],
+            'email' => $this->item['email']
         ]);
         $this->dispatchBrowserEvent('modal', ['modal'=>'createForm', 'action'=>'hide']);
         $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Successfully Created']);
-        $this->emitTo($this->parent, 'refresh');
+        $this->emitTo($this->parent, 'refresh');        
     }
 }

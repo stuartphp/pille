@@ -1,9 +1,8 @@
-<div class="container-sm mt-2">
+<div class="">
     <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-md-6">{{ __('Roles') }}</div>
-                <div class="col-md-1"><a href="#" onclick="window.location.href='{{ route('users.roles.create') }}'"><span class="h5">+</span></a></div>
+        <div class="card-body"><div class="row">
+                <div class="col-md-6"><span class="fs-4"> {{ __('Roles') }}</span></div>
+                <div class="col-md-1"><a href="#" onclick="window.location.href='{{ route('users.roles.create') }}'"><span class="fs-4">+</span></a></div>
                 <div class="col-md-1">
                     <x-page-size/>
                 </div>
@@ -11,9 +10,8 @@
                     <input type="text" class="form-control form-control-sm" wire:model.debounce.300ms="searchTerm" placeholder="Search" aria-label="Search"/>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
-            <table class="table table-hover">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
                 <thead>
                     <tr>
                         <th class="col-2">Title</th>
@@ -30,9 +28,9 @@
                                 <span class="badge bg-primary">{{ ucwords(str_replace('_', ' ', $permission->title)) }}</span>
                                 @endforeach
                             </td>
-                            <td class="text-right">
-                                <div class="btn-group dropleft">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <td class="text-end">
+                                <div class="btn-group dropstart">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                       <x-icon-three-dots-vertical/>
                                     </a>
                                     <div class="dropdown-menu">

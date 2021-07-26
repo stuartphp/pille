@@ -1,7 +1,6 @@
-<div class="mt-2">
-
+<div class="">
     <div class="card">
-        <div class="card-header">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-6"><span class="fs-4">Users</span></div>
                 <div class="col-md-1">
@@ -15,10 +14,6 @@
                 <div class="col-md-4">
                     <input type="text" class="form-control form-control-sm" wire:model.debounce.300ms="searchTerm" placeholder="Search" aria-label="Search"/></div>
             </div>
-        </div>
-        <div class="card-body">
-
-
             <div class="table-responsive">
                 <table class="table table-hover mb-0">
                     <thead>
@@ -69,6 +64,5 @@
         </div>
     </div> <!-- end card -->
     <!-- end page title -->
-
     @livewire('admin.users.users-child')
 </div>

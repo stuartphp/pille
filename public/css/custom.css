@@ -11,9 +11,7 @@ body {
 a.dropdown-item {
     font-size: 0.8rem;
 }
-label {
-    font-weight: 620;
-}
+
 .w-0	{width: 0px;}
 .w-px	{width: 1px;}
 .w-0_5{width: 0.125rem;}

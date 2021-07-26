@@ -9,15 +9,15 @@
                 
                 <div class="text-center w-75 m-auto">
                     <div class="auth-logo">
-                        <a href="index.html" class="logo logo-dark text-center">
+                        <a href="/" class="logo logo-dark text-center">
                             <span class="logo-lg">
-                                <img src="../assets/images/logo-dark.png" alt="" height="22">
+                                <img src="/logo.png" alt="" height="60">
                             </span>
                         </a>
     
-                        <a href="index.html" class="logo logo-light text-center">
+                        <a href="/" class="logo logo-light text-center">
                             <span class="logo-lg">
-                                <img src="../assets/images/logo-light.png" alt="" height="22">
+                                <img src="/logo.png" alt="" height="60">
                             </span>
                         </a>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkbox-signup">
+                            <input class="form-check-input" type="checkbox" name="terms" id="checkbox-signup">
                             <label class="form-check-label" for="checkbox-signup">
                                 I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a>
                             </label>
@@ -63,7 +63,7 @@
 
                 </form>
 
-                <div class="text-center">
+                <!--<div class="text-center">
                     <h5 class="mt-3 text-muted">Sign Up using</h5>
                     <ul class="social-list list-inline mt-3 mb-0">
                         <li class="list-inline-item">
@@ -79,7 +79,7 @@
                             <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
             </div> <!-- end card-body -->
         </div>
